@@ -1,0 +1,23 @@
+﻿  BankOOP.cpp
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsString.h(43,25): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'BankOOP.cpp')
+  
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsString.h(48,29): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'BankOOP.cpp')
+  
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsString.h(60,30): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'BankOOP.cpp')
+  
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsString.h(197,29): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'BankOOP.cpp')
+  
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsString.h(328,30): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'BankOOP.cpp')
+  
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsString.h(376,22): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
+  (compiling source file 'BankOOP.cpp')
+  
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsBankClient.h(23,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'BankOOP.cpp')
+  
+  BankOOP.vcxproj -> C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\x64\Debug\BankOOP.exe
