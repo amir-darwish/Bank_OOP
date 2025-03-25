@@ -28,6 +28,60 @@ private:
 		return clsBankClient(enMode::EmptyMode, "", "", "", "", "", "", 0);
 	}
 
+	static vector <clsBankClient> _LoadClientDataFromFile() {
+		vector <clsBankClient> vClients;
+		fstream MyFile;
+
+		MyFile.open("Clients.txt", ios::in);
+		if (MyFile.is_open()) {
+			string Line;
+			while (getline(MyFile, Line)) {
+				clsBankClient Client = _ConvertLineToClientObject(Line);
+				vClients.push_back(Client);
+			}
+			MyFile.close();
+		}
+		return vClients;
+	}
+	static string _ConvertClientObjectToLine(clsBankClient Client, string Seperator = "#//#") {
+
+		string stClientRecord = "";
+		stClientRecord += Client.FirstName + Seperator;
+		stClientRecord += Client.LastName + Seperator;
+		stClientRecord += Client.Email + Seperator;
+		stClientRecord += Client.Phone + Seperator;
+		stClientRecord += Client.AccountNumber() + Seperator;
+		stClientRecord += Client.PinCode + Seperator;
+		stClientRecord += to_string(Client.AccountBalance);
+
+		return stClientRecord;
+	}
+	static void _SaveClientsDataToFile(vector<clsBankClient> vClients) {
+		fstream MyFile;
+		MyFile.open("Clients.txt", ios::out);
+
+		if (MyFile.is_open()) {
+			string DataLine;
+			for (clsBankClient C : vClients) {
+				DataLine = _ConvertClientObjectToLine(C);
+				MyFile << DataLine << endl;
+			}
+			MyFile.close();
+		}
+	}
+
+	void _Update() {
+		vector <clsBankClient> vClients = _LoadClientDataFromFile();
+
+		for (clsBankClient &C : vClients) {
+			if (C.AccountNumber() == AccountNumber()) {
+				C = *this; // this is the pointer to my updated object
+				break;
+			}
+		}
+		_SaveClientsDataToFile(vClients);
+	}
+
 public:
 	clsBankClient(enMode Mode, string FirstName, string LastName,
 		string Email, string Phone, string AccountNumber, string PinCode,
@@ -121,5 +175,32 @@ public:
 		clsBankClient Client = Find(AccountNumber);
 		return (!Client.isEmpty());
 	}
+
+	enum enSaveResults { svFaildEmptyObject = 0, svSucceeded = 1 };
+
+	enSaveResults Save() {
+		switch (_Mode)
+		{
+		case clsBankClient::EmptyMode: {
+
+			return enSaveResults::svFaildEmptyObject;
+		}
+
+		case clsBankClient::UpdateMode: {
+
+
+			_Update();
+			return enSaveResults::svSucceeded;
+
+			break;
+		}
+
+
+		default:
+			break;
+		}
+	}
+	
+
 };
 

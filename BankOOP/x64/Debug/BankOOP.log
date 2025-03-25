@@ -17,7 +17,15 @@ C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsString.h(328,30)
 C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsString.h(376,22): warning C4267: 'initializing': conversion from 'size_t' to 'short', possible loss of data
   (compiling source file 'BankOOP.cpp')
   
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsInputValidate.h(101,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'BankOOP.cpp')
+  
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsInputValidate.h(105,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'BankOOP.cpp')
+  
 C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsBankClient.h(23,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankOOP.cpp')
   
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\BankOOP.cpp(24,62): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsBankClient.h(202,1): warning C4715: 'clsBankClient::Save': not all control paths return a value
   BankOOP.vcxproj -> C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\x64\Debug\BankOOP.exe
