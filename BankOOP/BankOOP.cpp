@@ -3,56 +3,26 @@
 #include "clsInputValidate.h"
 
 #include "clsBankClient.h"
-void ReadClientInfo(clsBankClient& Client)
-{       
-    cout << "\nEnter FirstName: ";
-    Client.FirstName = clsInputValidate::ReadString();
 
-    cout << "\nEnter LastName: ";
-    Client.LastName = clsInputValidate::ReadString();
 
-    cout << "\nEnter Email: ";
-    Client.Email = clsInputValidate::ReadString();
-
-    cout << "\nEnter Phone: ";
-    Client.Phone = clsInputValidate::ReadString();
-
-    cout << "\nEnter PinCode: ";
-    Client.PinCode = clsInputValidate::ReadString();
-
-    cout << "\nEnter Account Balance: ";
-    Client.AccountBalance = clsInputValidate::ReadFloatNumber();
-}
-
-void AddNewClient() {
+void DeleteClient() {
     cout << "Please enter client account number : ";
     string AccountNumber = clsInputValidate::ReadString();
-    while (clsBankClient::IsClienExist(AccountNumber)) {
-        cout << "Error Account Number is exist ! please enter again : ";
+    while (!clsBankClient::IsClienExist(AccountNumber)) {
+        cout << "Error Account Number is not found ! please enter again : ";
         AccountNumber = clsInputValidate::ReadString();
     }
-   
-    clsBankClient Client1 = clsBankClient::GetAddNewClientObject(AccountNumber);
-    ReadClientInfo(Client1);
+    clsBankClient Client1 = clsBankClient::Find(AccountNumber);
+    Client1.Print();
 
-    clsBankClient::enSaveResults SaveResults;
+    cout << "\nAre you sure you want delete it y or n ? ";
+    char Answer = 'n';
+    cin >> Answer;
+    if (Answer == 'y') {
+        Client1.Delete();
+    }
+    Client1.Print();
 
-    SaveResults = Client1.Save();
-    switch (SaveResults) {
-    case clsBankClient::enSaveResults::svSucceeded: {
-        cout << "\nAccount Added Successfully :-)\n";
-        Client1.Print();
-        break;
-    }
-    case clsBankClient::enSaveResults::svFaildEmptyObject: {
-        cout << "\nError account was not saved because it's Empty";
-        break;
-    }
-    case clsBankClient::svFaildAccountNumberExist: {
-        cout << "\nError account was not saved because it's exist";
-        break;
-    }
-    }
 
 }
 using namespace std;
@@ -61,6 +31,6 @@ using namespace std;
 int main()
 {
 
-    AddNewClient();
+    DeleteClient();
 }
 

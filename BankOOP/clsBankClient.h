@@ -7,12 +7,13 @@
 class clsBankClient :public clsPerson
 {
 private:
-	enum enMode { EmptyMode = 0, UpdateMode = 1, AddNew=3};
+	enum enMode { EmptyMode = 0, UpdateMode = 1 };
 	enMode _Mode;
 
 	string _AccountNumber;
 	string _PinCode;
 	float _AccountBalance;
+	bool _MarkedForDelete = false;
 
 	static clsBankClient _ConvertLineToClientObject(string Line, string Seperator = "#//#") {
 
@@ -63,23 +64,16 @@ private:
 		if (MyFile.is_open()) {
 			string DataLine;
 			for (clsBankClient C : vClients) {
-				DataLine = _ConvertClientObjectToLine(C);
-				MyFile << DataLine << endl;
+				if (C.MarkedForDelete() == false) {
+					DataLine = _ConvertClientObjectToLine(C);
+					MyFile << DataLine << endl;
+				}
+
 			}
 			MyFile.close();
 		}
 	}
-	void _AddNewDataLineToFile(string DataLine) {
-		fstream MyFile;
-		MyFile.open("Clients.txt", ios::app);
-		if (MyFile.is_open()) {
-			MyFile << DataLine << endl;
-			MyFile.close();
-		}
-	}
-	void _AddNew() {
-		_AddNewDataLineToFile(_ConvertClientObjectToLine(*this));
-	}
+
 	void _Update() {
 		vector <clsBankClient> vClients = _LoadClientDataFromFile();
 
@@ -127,6 +121,9 @@ public:
 	}
 	__declspec(property(get = GetAccountBalance, put = SetAccountBalance)) float AccountBalance;
 
+	bool MarkedForDelete() {
+		return _MarkedForDelete;
+	}
 	void Print() {
 		cout << "\nClient Card:";
 		cout << "\n___________________";
@@ -186,12 +183,20 @@ public:
 		return (!Client.isEmpty());
 	}
 
-	static clsBankClient GetAddNewClientObject(string AccountNumber) {
-		
-		return clsBankClient(enMode::AddNew, "", "", "", "", AccountNumber, "", 0);
+	 bool Delete() {
+		vector <clsBankClient> vClients = _LoadClientDataFromFile();
+
+		for (clsBankClient& C : vClients) {
+			if (C.AccountNumber() == AccountNumber()) {
+				C._MarkedForDelete = true;
+			}
+		}
+		_SaveClientsDataToFile(vClients);
+		*this = _GetEmptyClientObject();
+		return true;
 	}
 
-	enum enSaveResults { svFaildEmptyObject = 0, svSucceeded = 1, svFaildAccountNumberExist = 2 };
+	enum enSaveResults { svFaildEmptyObject = 0, svSucceeded = 1 };
 
 	enSaveResults Save() {
 		switch (_Mode)
@@ -207,17 +212,6 @@ public:
 			_Update();
 			return enSaveResults::svSucceeded;
 
-			break;
-		}
-		case clsBankClient::AddNew: {
-			if (IsClienExist(AccountNumber())) {
-				return enSaveResults::svFaildAccountNumberExist;
-			}
-			else {
-				_AddNew();
-				_Mode = UpdateMode;
-				return svSucceeded;
-			}
 			break;
 		}
 
