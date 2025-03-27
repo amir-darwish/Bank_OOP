@@ -13,6 +13,7 @@ private:
 	string _AccountNumber;
 	string _PinCode;
 	float _AccountBalance;
+	bool _MarkedForDelete = false;
 
 	static clsBankClient _ConvertLineToClientObject(string Line, string Seperator = "#//#") {
 
@@ -63,8 +64,11 @@ private:
 		if (MyFile.is_open()) {
 			string DataLine;
 			for (clsBankClient C : vClients) {
-				DataLine = _ConvertClientObjectToLine(C);
-				MyFile << DataLine << endl;
+				if (C.MarkedForDelete() == false) {
+					DataLine = _ConvertClientObjectToLine(C);
+					MyFile << DataLine << endl;
+				}
+
 			}
 			MyFile.close();
 		}
@@ -117,6 +121,9 @@ public:
 	}
 	__declspec(property(get = GetAccountBalance, put = SetAccountBalance)) float AccountBalance;
 
+	bool MarkedForDelete() {
+		return _MarkedForDelete;
+	}
 	void Print() {
 		cout << "\nClient Card:";
 		cout << "\n___________________";
@@ -174,6 +181,19 @@ public:
 
 		clsBankClient Client = Find(AccountNumber);
 		return (!Client.isEmpty());
+	}
+
+	 bool Delete() {
+		vector <clsBankClient> vClients = _LoadClientDataFromFile();
+
+		for (clsBankClient& C : vClients) {
+			if (C.AccountNumber() == AccountNumber()) {
+				C._MarkedForDelete = true;
+			}
+		}
+		_SaveClientsDataToFile(vClients);
+		*this = _GetEmptyClientObject();
+		return true;
 	}
 
 	enum enSaveResults { svFaildEmptyObject = 0, svSucceeded = 1 };
