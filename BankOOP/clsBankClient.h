@@ -196,6 +196,10 @@ public:
 		return true;
 	}
 
+	 static vector <clsBankClient> GetClientsList() {
+		 return _LoadClientDataFromFile();
+	 }
+
 	enum enSaveResults { svFaildEmptyObject = 0, svSucceeded = 1 };
 
 	enSaveResults Save() {
