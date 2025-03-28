@@ -199,6 +199,14 @@ public:
 	 static vector <clsBankClient> GetClientsList() {
 		 return _LoadClientDataFromFile();
 	 }
+	 static double GetTotalBalances() {
+		 vector <clsBankClient> vClients = _LoadClientDataFromFile();
+		 double TotalBalances = 0;
+		 for (clsBankClient C : vClients) {
+			 TotalBalances += C.GetAccountBalance();
+		 }
+		 return TotalBalances;
+	 }
 
 	enum enSaveResults { svFaildEmptyObject = 0, svSucceeded = 1 };
 
