@@ -38,7 +38,7 @@ class clsMainScreen : protected clsScreen
 	}
     static void _ShowDeleteClientScreen()
     {
-        //cout << "\nDelete Client Screen Will be here...\n";
+        //cout << "\nDelete Client Screen Will be here... test\n";
         clsDeleteClientScreen::ShowDeleteClientScreen();
     }
 
