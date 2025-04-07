@@ -4,6 +4,7 @@
 #include "clsBankClient.h"
 #include "clsUtil.h"
 #include "clsMainScreen.h"
+#include "clsAddNewClientScreen.h"
 #include <iomanip>
 
 using namespace std;
