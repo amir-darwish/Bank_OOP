@@ -3,7 +3,7 @@
 #include "clsBankClient.h"
 #include "clsScreen.h"
 #include "clsInputValidate.h"
-class clsUpdateClientScreen:clsScreen
+class clsUpdateClientScreen:protected clsScreen
 {
 private:
     void static _PrintClient(clsBankClient Client) {
@@ -40,7 +40,7 @@ private:
     };
 public:
     void static ShowUpdateClientScreen() {
-        _DrawScreenHeader("\tUpdateClientScreen");
+        _DrawScreenHeader("\tUpdate Client Screen");
 
         string AccountNumber = "";
         cout << "Please enter account number to update :";
