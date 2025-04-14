@@ -392,9 +392,13 @@ public:
         Save();
     }
 
-    void Withdrow(double Amount) {
+    bool Withdraw(double Amount) {
+        if (Amount > _AccountBalance) {
+            return false;
+        }
         _AccountBalance -= Amount;
         Save();
+        return true;
     }
 
 
