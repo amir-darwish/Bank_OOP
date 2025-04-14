@@ -33,10 +33,10 @@ public:
         }
         clsBankClient C = clsBankClient::Find(AccountNumber);
         if (!C.IsEmpty()) {
-            cout << "Account Found :)\n";
+            cout << "\nAccount Found :)\n";
         }
         else {
-            cout << "Account Not Found \n";
+            cout << "\nAccount Not Found \n";
 
         }
         _PrintClient(C);
