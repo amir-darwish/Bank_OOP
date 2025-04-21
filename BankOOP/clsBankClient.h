@@ -206,7 +206,7 @@ public:
     __declspec(property(get = GetAccountBalance, put = SetAccountBalance)) float AccountBalance;
 
     /*
-       No UI Related code iside object.
+       No UI Related code inside object.
      void Print()
      {
          cout << "\nClient Card:";
