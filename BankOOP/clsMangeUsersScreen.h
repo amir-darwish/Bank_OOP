@@ -6,6 +6,7 @@
 #include "clsUsersListScreen.h"
 #include "clsAddNewUser.h"
 #include "clsDeleteUserScreen.h"
+#include "clsUpdateUserScreen.h"
 
 
 using namespace std;
@@ -51,12 +52,14 @@ private:
     {
         //cout << "\nDelete User Screen Will Be Here.\n";
         clsDeleteUserScreen::ShowDeleteScreen();
+        
 
     }
 
     static void _ShowUpdateUserScreen()
     {
-        cout << "\nUpdate User Screen Will Be Here.\n";
+        //cout << "\nUpdate User Screen Will Be Here.\n";
+        clsUpdateUserScreen::ShowUpdateUserScreen();
     }
 
     static void _ShowFindUserScreen()
