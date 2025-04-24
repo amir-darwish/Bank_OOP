@@ -140,6 +140,7 @@
     <ClInclude Include="clsDpositScreen.h" />
     <ClInclude Include="clsFindUserScreen.h" />
     <ClInclude Include="clsInputValidate.h" />
+    <ClInclude Include="clsLoginUser.h" />
     <ClInclude Include="clsUpdateUserScreen.h" />
     <ClInclude Include="clsUsersListScreen.h" />
     <ClInclude Include="clsMainScreen.h" />
@@ -154,6 +155,11 @@
     <ClInclude Include="clsUtil.h" />
     <ClInclude Include="clsFindClientScreen.h" />
     <ClInclude Include="clsWithdrawScreen.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BankOOP.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
