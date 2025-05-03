@@ -79,7 +79,7 @@ class clsMainScreen : protected clsScreen
         cout << "\nEnd Screen Will be here...\n";
     }*/
     static void _Logout() {
-        //CurrentUser = clsUser::Find("", "");
+        CurrentUser = clsUser::Find("", "");
         
     }
 

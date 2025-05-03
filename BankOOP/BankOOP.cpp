@@ -15,6 +15,9 @@ using namespace std;
 int main()
 {
 	//clsMainScreen::ShowMainMenue();
-	clsLoginUser::ShowLoginScreen();
+	while (true) {
+		clsLoginUser::ShowLoginScreen();
+	}
+	
 }
 
