@@ -19,7 +19,12 @@ private:
         cout << "\n___________________\n";
     }
 public:
+
     void static ShowDeleteClientScreen() {
+        if (!CheckAccessRights(clsUser::pDeleteClient)) {
+            return;
+        }
+
         _DrawScreenHeader("\tDelete Client Screen");
         string AccountNumber = "";
         char Answer = 'n';

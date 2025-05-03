@@ -26,7 +26,7 @@ private :
 			cout << "Please Enter your Username : ";
 			Username = clsInputValidate::ReadString();
 
-			cout << "Please Enter your Password : ";
+			cout << "\nPlease Enter your Password : ";
 			Password = clsInputValidate::ReadString();
 
 			CurrentUser = clsUser::Find(Username, Password);
