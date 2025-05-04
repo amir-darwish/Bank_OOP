@@ -35,6 +35,11 @@ C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsBankClient.h(399
 C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsUtil.h(64,5): warning C4102: 'defualt': unreferenced label
   (compiling source file 'BankOOP.cpp')
   
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsUser.h(192,12): warning C4240: nonstandard extension used: access to 'clsUser::stLoginRegisterRecord' now defined to be 'public', previously it was defined to be 'private'
+  (compiling source file 'BankOOP.cpp')
+      C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsUser.h(160,12):
+      see declaration of 'clsUser::stLoginRegisterRecord'
+  
 C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsAddNewClientScreen.h(28,66): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'BankOOP.cpp')
   
@@ -48,6 +53,5 @@ C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsTotalBalancesScr
   (compiling source file 'BankOOP.cpp')
   
 C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsBankClient.h(332,1): warning C4715: 'clsBankClient::Save': not all control paths return a value
-C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsUser.h(314,1): warning C4715: 'clsUser::Save': not all control paths return a value
-  LINK : C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\x64\Debug\BankOOP.exe not found or not built by the last incremental link; performing full link
+C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\BankOOP\clsUser.h(336,1): warning C4715: 'clsUser::Save': not all control paths return a value
   BankOOP.vcxproj -> C:\Users\Moham\Desktop\c++\course11\BankOOP\Bank_OOP\x64\Debug\BankOOP.exe
