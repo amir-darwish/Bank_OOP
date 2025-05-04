@@ -44,7 +44,7 @@ private :
 			LoginFaild = CurrentUser.IsEmpty();
 
 		}while (LoginFaild);
-
+		CurrentUser.RegstirLogIn();
 		clsMainScreen::ShowMainMenue();
 		return true;
 	}

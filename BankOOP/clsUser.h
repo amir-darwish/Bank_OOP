@@ -149,6 +149,14 @@ private:
         return clsUser(enMode::EmptyMode, "", "", "", "", "", "", 0);
     }
 
+    string _PrepareLoginRecord(string Seperator = "#//#") {
+        string LoginRecord = "";
+        LoginRecord += clsDate::GetSystemDateTimeString() + Seperator;
+        LoginRecord += UserName + Seperator;
+        LoginRecord += Password + Seperator;
+        LoginRecord += to_string(Permissions);
+        return LoginRecord;
+    }
 public:
     enum enPermissions {
         eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4,
@@ -345,7 +353,7 @@ public:
         return _LoadUsersDataFromFile();
     }
 
-     bool CheckAccessPermessions(enPermissions Permissions) {
+    bool CheckAccessPermessions(enPermissions Permissions) {
         if (this->Permissions == enPermissions::eAll) {
             return true;
         }
@@ -356,4 +364,17 @@ public:
             return false;
         }
     }
+
+    void RegstirLogIn() {
+        string DataLine = _PrepareLoginRecord();
+        fstream MyFile;
+
+        MyFile.open("LoginRegister.txt", ios::out | ios::app);
+
+        if (MyFile.is_open()) {
+            MyFile << DataLine << endl;
+            MyFile.close();
+        }
+    }
+
 };
