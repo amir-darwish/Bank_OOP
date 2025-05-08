@@ -56,12 +56,13 @@ public:
             Amount = clsInputValidate::ReadDblNumber();
         }
         char Answer = 'n';
-        cout << "Are you sure you want to perform this operation? y/n?";
+        cout << "Are you sure you want to perform this operation? y/n? ";
         cin >> Answer;
         if (Answer == 'y' || Answer == 'Y') {
 
-            if (TransferFrom.Transfer(Amount,TransferTO) && (TransferFrom.AccountNumber() != TransferTO.AccountNumber())) {
+            if (TransferFrom.Transfer(Amount,TransferTO, CurrentUser.GetUserName()) && (TransferFrom.AccountNumber() != TransferTO.AccountNumber())) {
                 cout << "Transfer Done Successfully .\n";
+
                 _PrintClient(TransferFrom);
                 _PrintClient(TransferTO);
             }
