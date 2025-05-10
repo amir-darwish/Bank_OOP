@@ -6,6 +6,7 @@
 #include <vector>
 #include "clsUtil.h"
 #include <fstream>
+#include "Global.h"
 
 using namespace std;
 class clsUser : public clsPerson
@@ -364,6 +365,26 @@ public:
 
         return true;
 
+    }
+
+   static bool DeleteAllUsers(string UserCurrent) {
+        vector <clsUser> _vUsers;
+        _vUsers = _LoadUsersDataFromFile();
+
+        for (clsUser& U : _vUsers)
+        {
+            if (U.UserName != UserCurrent)
+            {
+                U._MarkedForDelete = true;
+              
+            }
+
+        }
+
+        _SaveUsersDataToFile(_vUsers);
+
+
+        return true;
     }
 
     static clsUser GetAddNewUserObject(string UserName)

@@ -8,7 +8,7 @@
 #include "clsDeleteUserScreen.h"
 #include "clsUpdateUserScreen.h"
 #include "clsFindUserScreen.h"
-
+#include "clsDeleteAllUsersScreen.h"
 
 using namespace std;
 
@@ -18,13 +18,13 @@ class clsManageUsersScreen :protected clsScreen
 private:
     enum enManageUsersMenueOptions {
         eListUsers = 1, eAddNewUser = 2, eDeleteUser = 3,
-        eUpdateUser = 4, eFindUser = 5, eMainMenue = 6
+        eUpdateUser = 4, eFindUser = 5, eDeleteAllUsers = 6, eMainMenue = 7
     };
 
     static short ReadManageUsersMenueOption()
     {
-        cout << setw(37) << left << "" << "Choose what do you want to do? [1 to 6]? ";
-        short Choice = clsInputValidate::ReadIntNumberBetween(1, 6, "Enter Number between 1 to 6? ");
+        cout << setw(37) << left << "" << "Choose what do you want to do? [1 to 7]? ";
+        short Choice = clsInputValidate::ReadIntNumberBetween(1, 7, "Enter Number between 1 to 7 ? ");
         return Choice;
     }
 
@@ -67,6 +67,9 @@ private:
     {
         //cout << "\nFind User Screen Will Be Here.\n";
         clsFindUserScreen::ShowFindUserScreen();
+    }
+    static void _DeleteAllUsersScreen() {
+        clsDeleteAllUsersScreen::ShowDeleteAllUsersScreen();
     }
 
 
@@ -115,6 +118,14 @@ private:
             _GoBackToManageUsersMenue();
             break;
         }
+        case enManageUsersMenueOptions::eDeleteAllUsers:
+        {
+            system("cls");
+
+            _DeleteAllUsersScreen();
+            _GoBackToManageUsersMenue();
+            break;
+        }
 
         case enManageUsersMenueOptions::eMainMenue:
         {
@@ -146,7 +157,8 @@ public:
         cout << setw(37) << left << "" << "\t[3] Delete User.\n";
         cout << setw(37) << left << "" << "\t[4] Update User.\n";
         cout << setw(37) << left << "" << "\t[5] Find User.\n";
-        cout << setw(37) << left << "" << "\t[6] Main Menue.\n";
+        cout << setw(37) << left << "" << "\t[6] Delete All Users.\n";
+        cout << setw(37) << left << "" << "\t[7] Main Menue.\n";
         cout << setw(37) << left << "" << "===========================================\n";
 
         _PerformManageUsersMenueOption((enManageUsersMenueOptions)ReadManageUsersMenueOption());
