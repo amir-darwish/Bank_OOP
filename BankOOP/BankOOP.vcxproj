@@ -142,6 +142,7 @@
     <ClInclude Include="clsInputValidate.h" />
     <ClInclude Include="clsLoginUser.h" />
     <ClInclude Include="clsRegisterLoginScreen.h" />
+    <ClInclude Include="clsTransferLogScreen.h" />
     <ClInclude Include="clsTransferScreen.h" />
     <ClInclude Include="clsUpdateUserScreen.h" />
     <ClInclude Include="clsUsersListScreen.h" />
