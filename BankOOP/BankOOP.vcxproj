@@ -131,12 +131,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsAddNewClientScreen.h" />
+    <ClInclude Include="clsAddNewUser.h" />
     <ClInclude Include="clsBankClient.h" />
     <ClInclude Include="clsClientsListScreen.h" />
     <ClInclude Include="clsDate.h" />
+    <ClInclude Include="clsDeleteAllUsersScreen.h" />
     <ClInclude Include="clsDeleteClientScreen.h" />
+    <ClInclude Include="clsDeleteUserScreen.h" />
     <ClInclude Include="clsDpositScreen.h" />
+    <ClInclude Include="clsFindUserScreen.h" />
     <ClInclude Include="clsInputValidate.h" />
+    <ClInclude Include="clsLoginUser.h" />
+    <ClInclude Include="clsRegisterLoginScreen.h" />
+    <ClInclude Include="clsTransferLogScreen.h" />
+    <ClInclude Include="clsTransferScreen.h" />
+    <ClInclude Include="clsUpdateUserScreen.h" />
     <ClInclude Include="clsUsersListScreen.h" />
     <ClInclude Include="clsMainScreen.h" />
     <ClInclude Include="clsMangeUsersScreen.h" />
@@ -150,6 +159,11 @@
     <ClInclude Include="clsUtil.h" />
     <ClInclude Include="clsFindClientScreen.h" />
     <ClInclude Include="clsWithdrawScreen.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BankOOP.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

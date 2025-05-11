@@ -5,6 +5,7 @@
 #include "clsUtil.h"
 #include "clsMainScreen.h"
 #include "clsAddNewClientScreen.h"
+#include "clsLoginUser.h"
 #include <iomanip>
 
 using namespace std;
@@ -13,7 +14,13 @@ using namespace std;
 
 int main()
 {
-	clsMainScreen::ShowMainMenue();
-
+	//clsMainScreen::ShowMainMenue();
+	while (true) {
+		
+		if (!clsLoginUser::ShowLoginScreen()) {
+			break;
+		}
+	}
+	
 }
 

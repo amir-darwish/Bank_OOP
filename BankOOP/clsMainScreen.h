@@ -10,7 +10,8 @@
 #include "clsFindClientScreen.h"
 #include "clsTransactionsScreen.h"
 #include "clsMangeUsersScreen.h"
-
+#include "Global.h"
+#include "clsRegisterLoginScreen.h"
 using namespace std;
 
 class clsMainScreen : protected clsScreen
@@ -18,11 +19,11 @@ class clsMainScreen : protected clsScreen
 	enum enMainMenueOptions {
 		eListClients = 1, eAddNewClient = 2, eDeleteClient = 3,
 		eUpdateClient = 4, eFindClient = 5, eShowTransactionsMenue = 6,
-        eManageUsers = 7, eExit = 8
+        eManageUsers = 7, eRegisterLogin = 8 , eExit = 9
 	};
 	static short _ReadMainMenueOption() {
-		cout << setw(37) << left << "" << "Choose what do you want to do? [1 to 8]? ";
-		short Choice = clsInputValidate::ReadIntNumberBetween(1, 8, "Enter Number between 1 and 8 : ");
+		cout << setw(37) << left << "" << "Choose what do you want to do? [1 to 9]? ";
+		short Choice = clsInputValidate::ReadIntNumberBetween(1, 9, "Enter Number between 1 and 9 : ");
 		return Choice;
 	}
 
@@ -73,10 +74,17 @@ class clsMainScreen : protected clsScreen
         //cout << "\nUsers Menue Will be here...\n";
         clsManageUsersScreen::ShowManageUsersMenue();
     }
-
-    static void _ShowEndScreen()
+    static void _ShowRegsiterLoginScreen() {
+        //cout << "\nRegstir Login Screen Will be here...\n";
+        clsRegisterLoginScreen::ShowLoginRegisterScreen();
+    }
+  /*  static void _ShowEndScreen()
     {
         cout << "\nEnd Screen Will be here...\n";
+    }*/
+    static void _Logout() {
+        CurrentUser = clsUser::Find("", "");
+        
     }
 
     static void _PerfromMainMenueOption(enMainMenueOptions MainMenueOption) {
@@ -123,9 +131,14 @@ class clsMainScreen : protected clsScreen
             _GoBackToMainMenue();
             break;
 
+        case enMainMenueOptions::eRegisterLogin:
+            system("cls");
+            _ShowRegsiterLoginScreen();
+            _GoBackToMainMenue();
+            break;
         case enMainMenueOptions::eExit:
             system("cls");
-            _ShowEndScreen();
+            _Logout();
             //Login();
 
             break;
@@ -149,7 +162,8 @@ class clsMainScreen : protected clsScreen
         cout << setw(37) << left << "" << "\t[5] Find Client.\n";
         cout << setw(37) << left << "" << "\t[6] Transactions.\n";
         cout << setw(37) << left << "" << "\t[7] Manage Users.\n";
-        cout << setw(37) << left << "" << "\t[8] Logout.\n";
+        cout << setw(37) << left << "" << "\t[8] Register Login.\n";
+        cout << setw(37) << left << "" << "\t[9] Logout.\n";
         cout << setw(37) << left << "" << "===========================================\n";
 
         _PerfromMainMenueOption((enMainMenueOptions)_ReadMainMenueOption());

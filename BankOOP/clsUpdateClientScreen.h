@@ -39,7 +39,11 @@ private:
         Client.AccountBalance = clsInputValidate::ReadFloatNumber();
     };
 public:
+
     void static ShowUpdateClientScreen() {
+        if (!CheckAccessRights(clsUser::pUpdateClients)) {
+            return;
+        }
         _DrawScreenHeader("\tUpdate Client Screen");
 
         string AccountNumber = "";
