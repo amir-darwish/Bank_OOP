@@ -40,13 +40,13 @@ public:
 			}
 		}
 		else if (choix == 2) {
-			string CountryCode;
-			cout << "Please enter country code : ";
-			CountryCode = clsInputValidate::ReadString();
+			string CurrencyCode;
+			cout << "Please enter currency code : ";
+			CurrencyCode = clsInputValidate::ReadString();
 
-			clsCurrency Currency = clsCurrency::FindByCode(CountryCode);
+			clsCurrency Currency = clsCurrency::FindByCode(CurrencyCode);
 			if (!Currency.IsEmpty()) {
-				cout << "Currency Found ! \n";
+				cout << "\nCurrency Found ! \n";
 				_PrintCurrency(Currency);
 			}
 			else {
